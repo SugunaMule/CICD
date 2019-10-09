@@ -25,8 +25,32 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
 				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${app.runtime}</muleVersion>
+						<username>SugunaMuleLearn</username>
+						<password>Mahesh@2805</password>
+						<applicationName>cicdmulelearn</applicationName>					
+						<environment>${deploy.environment}</environment>
+						<workers>1</workers>
+						<workerType>Micro</workerType>						
+					</cloudHubDeployment>
 				</configuration>
+				<executions>
+						<execution>
+							<id>deploy</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>deploy</goal>
+							</goals>							
+						</execution>
+					</executions>
 			</plugin>
 		</plugins>
 	</build>
